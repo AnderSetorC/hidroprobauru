@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hidro Pró — Criativos Instagram</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="creatives.css" />
+
+<style>
+  html, body { margin: 0; padding: 0; background: #F2F4F8; font-family: 'Inter', system-ui, sans-serif; }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="creatives-feed.jsx"></script>
+<script type="text/babel" src="creatives-carousel.jsx"></script>
+<script type="text/babel" src="creatives-stories.jsx"></script>
+
+<script type="text/babel">
+function App() {
+  // 1080x1080 for feed/carousel, 1080x1920 for stories
+  return (
+    <DesignCanvas>
+      <DCSection id="feed" title="Feed (1:1)" subtitle="Posts unitários — 1080×1080">
+        <DCArtboard id="feed-hook" label="01 · Hook urgência" width={1080} height={1080}><Feed_Hook/></DCArtboard>
+        <DCArtboard id="feed-24h" label="02 · Atendimento 24h" width={1080} height={1080}><Feed_24h/></DCArtboard>
+        <DCArtboard id="feed-services" label="03 · Serviços" width={1080} height={1080}><Feed_Services/></DCArtboard>
+        <DCArtboard id="feed-testi" label="04 · Depoimento" width={1080} height={1080}><Feed_Testimonial/></DCArtboard>
+        <DCArtboard id="feed-promo" label="05 · Orçamento grátis" width={1080} height={1080}><Feed_Promo/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="carousel" title="Carrossel — 5 sinais de vazamento escondido" subtitle="6 slides · arraste para a direita">
+        <DCArtboard id="cv0" label="Capa" width={1080} height={1080}><Carr_0_Cover/></DCArtboard>
+        <DCArtboard id="cv1" label="Sinal 1 · Conta de água" width={1080} height={1080}><Carr_1/></DCArtboard>
+        <DCArtboard id="cv2" label="Sinal 2 · Mofo" width={1080} height={1080}><Carr_2/></DCArtboard>
+        <DCArtboard id="cv3" label="Sinal 3 · Som de água" width={1080} height={1080}><Carr_3/></DCArtboard>
+        <DCArtboard id="cv4" label="Sinal 4 · Pressão baixa" width={1080} height={1080}><Carr_4/></DCArtboard>
+        <DCArtboard id="cv5" label="CTA final" width={1080} height={1080}><Carr_5_CTA/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="stories" title="Stories (9:16)" subtitle="1080×1920 — também serve para Reels capa">
+        <DCArtboard id="st-24h" label="01 · 24h" width={1080} height={1920}><Story_24h/></DCArtboard>
+        <DCArtboard id="st-proof" label="02 · Prova social" width={1080} height={1920}><Story_SocialProof/></DCArtboard>
+        <DCArtboard id="st-promo" label="03 · Orçamento grátis" width={1080} height={1920}><Story_Promo/></DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+
+</body>
+</html>
