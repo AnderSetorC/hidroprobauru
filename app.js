@@ -59,7 +59,7 @@
         service ? `Preciso de: ${service}.` : null,
         message ? `Detalhes: ${message}` : null,
         `Meu telefone: ${phone}.`,
-        `Pode me passar um orçamento, por favor?`,
+        `Pode me passar um orçamento, por favor? (vi no site)`,
       ].filter(Boolean);
       const text = encodeURIComponent(lines.join('\n'));
       const phoneWA = '5514991542415';
@@ -80,4 +80,42 @@
       }
     });
   });
+  // ---- Photo mosaic rotation ----
+  const mosaic = document.querySelector('.photo-mosaic');
+  if (mosaic) {
+    const allImages = Array.from(mosaic.querySelectorAll('img'));
+    const centerImg = mosaic.querySelector('.mosaic-3'); // caixa d'água stays fixed
+    const visibleSlots = allImages.filter(img => !img.classList.contains('mosaic-3') && !img.classList.contains('mosaic-6') && !img.classList.contains('mosaic-7') && !img.classList.contains('mosaic-8'));
+    const hiddenImages = allImages.filter(img => img.classList.contains('mosaic-6') || img.classList.contains('mosaic-7') || img.classList.contains('mosaic-8'));
+
+    let pool = [...hiddenImages];
+
+    function rotateSlot() {
+      if (pool.length === 0) return;
+      // Pick a random visible slot (not center)
+      const slotIndex = Math.floor(Math.random() * visibleSlots.length);
+      const currentImg = visibleSlots[slotIndex];
+      // Pick a random hidden image
+      const poolIndex = Math.floor(Math.random() * pool.length);
+      const newImg = pool[poolIndex];
+
+      // Fade out current
+      currentImg.style.opacity = '0';
+
+      setTimeout(() => {
+        // Swap src and alt
+        const tempSrc = currentImg.src;
+        const tempAlt = currentImg.alt;
+        currentImg.src = newImg.src;
+        currentImg.alt = newImg.alt;
+        newImg.src = tempSrc;
+        newImg.alt = tempAlt;
+
+        // Fade in
+        currentImg.style.opacity = '1';
+      }, 800);
+    }
+
+    setInterval(rotateSlot, 3500);
+  }
 })();
