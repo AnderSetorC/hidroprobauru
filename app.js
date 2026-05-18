@@ -84,8 +84,7 @@
   const mosaic = document.querySelector('.photo-mosaic');
   if (mosaic) {
     const allImages = Array.from(mosaic.querySelectorAll('img'));
-    const centerImg = mosaic.querySelector('.mosaic-3'); // caixa d'água stays fixed
-    const visibleSlots = allImages.filter(img => !img.classList.contains('mosaic-3') && !img.classList.contains('mosaic-6') && !img.classList.contains('mosaic-7') && !img.classList.contains('mosaic-8'));
+    const visibleSlots = allImages.filter(img => !img.classList.contains('mosaic-6') && !img.classList.contains('mosaic-7') && !img.classList.contains('mosaic-8'));
     const hiddenImages = allImages.filter(img => img.classList.contains('mosaic-6') || img.classList.contains('mosaic-7') || img.classList.contains('mosaic-8'));
 
     let pool = [...hiddenImages];
