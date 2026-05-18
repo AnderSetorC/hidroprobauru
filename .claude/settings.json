@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m 'Incluir foto central na rotação automática do mosaico *)"
+    ]
+  }
+}
