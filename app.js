@@ -84,8 +84,8 @@
   const mosaic = document.querySelector('.photo-mosaic');
   if (mosaic) {
     const allImages = Array.from(mosaic.querySelectorAll('img'));
-    const visibleSlots = allImages.filter(img => !img.classList.contains('mosaic-6') && !img.classList.contains('mosaic-7') && !img.classList.contains('mosaic-8'));
-    const hiddenImages = allImages.filter(img => img.classList.contains('mosaic-6') || img.classList.contains('mosaic-7') || img.classList.contains('mosaic-8'));
+    const visibleSlots = allImages.filter(img => !img.classList.contains('mosaic-4') && !img.classList.contains('mosaic-5') && !img.classList.contains('mosaic-6') && !img.classList.contains('mosaic-7') && !img.classList.contains('mosaic-8'));
+    const hiddenImages = allImages.filter(img => img.classList.contains('mosaic-4') || img.classList.contains('mosaic-5') || img.classList.contains('mosaic-6') || img.classList.contains('mosaic-7') || img.classList.contains('mosaic-8'));
 
     let pool = [...hiddenImages];
 
@@ -116,5 +116,17 @@
     }
 
     setInterval(rotateSlot, 3500);
+  }
+
+  // ---- Floating badges alternation ----
+  const fb1 = document.querySelector('.floating-badge.fb-1');
+  const fb2 = document.querySelector('.floating-badge.fb-2');
+  if (fb1 && fb2) {
+    let showFirst = true;
+    setInterval(() => {
+      showFirst = !showFirst;
+      fb1.style.opacity = showFirst ? '1' : '0';
+      fb2.style.opacity = showFirst ? '0' : '1';
+    }, 4000);
   }
 })();
