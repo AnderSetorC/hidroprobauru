@@ -448,6 +448,13 @@ img { display: block; max-width: 100%; }
 }
 .form-foot .lock { vertical-align: -3px; margin-right: 4px; }
 
+.form-solicitacoes {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
 /* ----------------------------- */
 /* TRUST STRIP                   */
 /* ----------------------------- */

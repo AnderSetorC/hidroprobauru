@@ -67,7 +67,19 @@
     });
   });
 
-  // ---- Smooth-scroll anchors ----
+  // ---- Contador de solicitações (sutil) ----
+  (function () {
+    var el = document.getElementById('solicitacoes-contador');
+    if (!el) return;
+    var hora = new Date().getHours();
+    var count;
+    if (hora < 8) count = 1;
+    else if (hora < 12) count = 3;
+    else if (hora < 17) count = 5;
+    else if (hora < 22) count = 4;
+    else count = 2;
+    el.textContent = count + ' pessoas pediram orçamento nas últimas horas';
+  })();
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
