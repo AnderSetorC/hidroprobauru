@@ -586,6 +586,20 @@ section { padding: 76px 0; }
   border-radius: 999px;
   letter-spacing: 0.04em;
 }
+.service-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  transition: color .15s, gap .15s;
+}
+.service-card-link:hover {
+  color: var(--navy);
+  gap: 10px;
+}
 
 /* ----------------------------- */
 /* WHY US                        */
