@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hidroprobauru.com.br/sitemap.xml
+
+# Disallow admin/system files
+Disallow: /uploads/
+Disallow: /*.jsx$
+Disallow: /*.js$
+Allow: /app.js
